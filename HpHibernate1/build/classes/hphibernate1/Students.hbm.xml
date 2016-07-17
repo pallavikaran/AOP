@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="hphibernate1.Students" table="STUDENTS">
+        
+        <id name="roll" type="int" column="roll">
+            <!--<generator class="native"/>-->
+        </id>
+        <property name="std_name" column="s_name" type="string"/>
+        <property name="score" column="s_score" type="double"/>
+        <property name="address" column="s_add" type="string"/>
+    </class>
+</hibernate-mapping>
+

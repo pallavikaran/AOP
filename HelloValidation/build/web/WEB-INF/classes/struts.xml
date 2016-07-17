@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+       <constant name="struts.enable.DynamicMethodInvocation" value="false" /> 
+    	<constant name="struts.devMode" value="false" />
+        
+        <package name="demo" namespace="/" extends="struts-default">
+            <interceptors>	
+			<interceptor name="simple" class="org.demo.inter.MyInterceptor"/>
+                        <interceptor name="log" class="org.demo.inter.LogInterceptor"/>
+	</interceptors>
+		    
+            <action name="login" class="org.demo.action.LoginAction" method="input">
+                <interceptor-ref name="simple"/>
+                <interceptor-ref name="log"/>
+                <result name="input">Login.jsp</result>
+                <result name="ERROR">error.jsp</result>
+            </action>
+            
+            <action name="loginS" class="org.demo.action.LoginAction" method="execute">
+                
+                <result name="input">Login.jsp</result>
+                <result name="success">loginSuccess.jsp</result>
+                 <result name="ERROR">error.jsp</result>
+            </action>
+            
+        </package>
+
+</struts>

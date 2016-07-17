@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="security" class="aop.SecurityAdvice">   
+    </bean>
+    
+    <bean id="bankTarget" class="aop.BankImpl"> 
+    </bean>
+    <bean id="bankService" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="bankTarget"/>
+        <property name="interceptorNames">
+            <list>
+				
+                <value>security</value>
+							
+            </list>
+        </property>
+        <property name="proxyInterfaces">
+			<list>
+				<value>aop.Bank</value>
+			</list>
+		</property>
+    </bean>
+</beans>

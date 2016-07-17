@@ -1,0 +1,7 @@
+package aop;
+
+// Business Services : Proxy Interface
+public interface Bank {
+	public void transfer(int acc1,int acc2, double amt)		throws BankException;
+	public double getBalance(int acc1) 		throws BankException;
+}
